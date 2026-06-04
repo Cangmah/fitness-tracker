@@ -31,7 +31,11 @@ myFitness is a fitness tracking application developed for CIS 350 (Introduction 
 
 Jira Board: *(link here)*
 
-Sprint planning, backlog, and issue tracking are managed via Jira.
+We use Jira to manage tasks, track progress, and organize our work into sprints. Each sprint contains a set of tickets representing individual tasks or features. As work begins on a ticket it is moved to **In Progress**, and marked **Done** upon completion. This gives us a clear picture of what's been accomplished and what still needs to be done at any point in the project.
+
+**Project Checkpoint 1 Sprint (Jun 3 – Jun 5):**
+
+![Jira Sprint 1](assets/jira.png)
 
 ---
 
@@ -49,12 +53,12 @@ Sprint planning, backlog, and issue tracking are managed via Jira.
 
 ## Architectural Design
 
-*(Architectural diagram to be added)*
+myFitness follows a client-serverless architecture. The Flutter mobile app communicates directly with Firebase services — there is no custom backend server.
 
-High-level overview:
-- **Frontend:** TBD (React / Flutter / etc.)
-- **Backend:** TBD (Node.js / Flask / etc.)
-- **Database:** TBD (MongoDB / Local Storage)
+- **Frontend:** Flutter (Dart) — cross-platform mobile app for iOS and Android
+- **Auth:** Firebase Authentication — handles user registration, login, and session management
+- **Database:** Firebase Firestore — NoSQL cloud database storing users, exercises, and workout logs
+- **Hosting/Backend:** Firebase — no separate server required
 
 ---
 
@@ -75,12 +79,12 @@ Key use cases:
 
 ## Tech Stack
 
-| Layer      | Technology     |
-|------------|----------------|
-| Frontend   | TBD            |
-| Backend    | TBD            |
-| Database   | TBD (MongoDB or local) |
-| Auth       | TBD            |
+| Layer      | Technology              |
+|------------|-------------------------|
+| Frontend   | Flutter (Dart)          |
+| Backend    | Firebase (serverless)   |
+| Database   | Firebase Firestore      |
+| Auth       | Firebase Authentication |
 
 ---
 
