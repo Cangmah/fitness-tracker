@@ -60,6 +60,48 @@ myFitness follows a client-serverless architecture. The Flutter mobile app commu
 - **Database:** Firebase Firestore — NoSQL cloud database storing users, exercises, and workout logs
 - **Hosting/Backend:** Firebase — no separate server required
 
+### System Architecture Diagram
+
+```mermaid
+graph TD
+    A[Flutter Mobile App] -->|Login / Register| B[Firebase Authentication]
+    A -->|Read/Write workout data| C[Firebase Firestore]
+    A -->|Read/Write exercise library| C
+    B -->|Auth token| A
+    C -->|User data, workouts, exercises| A
+```
+
+### Firestore Data Structure
+
+Firestore organizes data into **collections** (like tables) containing **documents** (like rows). Below is the data model for myFitness:
+
+```
+users/
+  {userId}/
+    name: string
+    email: string
+    createdAt: timestamp
+
+exercises/
+  {exerciseId}/
+    name: string
+    category: string       // e.g. "legs", "chest", "arms"
+    isCustom: boolean
+    createdBy: string      // userId if custom, null if built-in
+
+workouts/
+  {workoutId}/
+    userId: string
+    date: timestamp
+    notes: string
+    entries/               // subcollection — one per exercise in this session
+      {entryId}/
+        exerciseId: string
+        sets: number
+        reps: number
+        weight: number     // in lbs or kg
+```
+
 ---
 
 ## Use Case Diagrams
