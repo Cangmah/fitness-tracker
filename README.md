@@ -64,12 +64,21 @@ myFitness follows a client-serverless architecture. The Flutter mobile app commu
 
 ```mermaid
 graph TD
-    A[Flutter Mobile App] -->|Login / Register| B[Firebase Authentication]
-    A -->|Read/Write workout data| C[Firebase Firestore]
-    A -->|Read/Write exercise library| C
-    B -->|Auth token| A
-    C -->|User data, workouts, exercises| A
+    A[Flutter Mobile App] --> B[Firebase Authentication]
+    A --> C[Firebase Firestore]
+    B --> A
+    C --> A
+
+    B:::firebase
+    C:::firebase
 ```
+
+| Arrow | Description |
+|-------|-------------|
+| App → Firebase Authentication | Login / Register requests |
+| Firebase Authentication → App | Returns auth token |
+| App → Firebase Firestore | Read/Write workouts and exercises |
+| Firebase Firestore → App | Returns user data, workouts, exercises |
 
 ### Firestore Data Structure
 
