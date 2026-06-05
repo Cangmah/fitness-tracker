@@ -18,6 +18,8 @@ myFitness is a fitness tracking application developed for CIS 350 (Introduction 
 - [Features](#features)
 - [Architectural Design](#architectural-design)
 - [Use Case Diagrams](#use-case-diagrams)
+- [Class Diagram](#class-diagram)
+- [Sequence Diagram](#sequence-diagram)
 - [Tech Stack](#tech-stack)
 - [Setup & Installation](#setup--installation)
 
@@ -135,7 +137,19 @@ Key use cases:
 
 ## Class Diagram
 
-Class diagram shows 
+The class diagram below outlines the core entities of myFitness, their attributes, methods, and relationships. A User can create custom exercises and log multiple workout sessions. Each workout session contains one or more entries, where each entry records the exercise performed along with sets, reps, and weight.
+
+![Class Diagram](assets/class.png)
+
+---
+
+## Sequence Diagram
+
+The sequence diagram illustrates the interaction between the User, Flutter App, Firebase Authentication, and Firestore across all five key use cases. It shows the order of messages exchanged — solid arrows represent requests or actions, while dashed arrows represent responses returned from a service.
+
+![Sequence Diagram](assets/class.png)
+
+---
 
 ## Tech Stack
 
