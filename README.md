@@ -2,7 +2,7 @@
 
 ## Abstract
 
-Being active is a crucial part of one's health. Whether it's hitting new PR's or being physically/mentally fit, we can get caught up in life's momentum and lose track of our progress. myFitness attempts to solve this issue by placing your personal fitness progression in your pocket. 
+Being active is a crucial part of one's health. Whether chasing new personal records or simply staying physically and mentally fit, it's easy to get caught up in daily life and lose track of our progress. myFitness solves this by placing your personal fitness journey in your pocket.
 
 ---
 ## Introduction
