@@ -2,6 +2,11 @@
 
 ## Abstract
 
+Being active is a crucial part of one's health. Whether it's hitting new PR's or being physically/mentally fit, we can get caught up in life's momentum and lose track of our progress. myFitness attempts to solve this issue by placing your personal fitness progression in your pocket. 
+
+---
+## Introduction
+
 myFitness is a fitness tracking application developed for CIS 350 (Introduction to Software Engineering). The app allows users to log and monitor their workouts over time. Users can select from a built-in library of exercises (e.g., squats, dumbbell curls) or define their own custom exercises (e.g., jumping jacks). For each workout session, users log the date, sets × reps performed, and weight used. A progress tab visualizes improvements over a selected time period — including metrics such as progressive overload (weight increases) and volume trends (sets/reps over time).
 
 ---
@@ -29,7 +34,7 @@ myFitness is a fitness tracking application developed for CIS 350 (Introduction 
 
 ## Project Management
 
-Jira Board: *(link here)*
+Jira Board:
 
 We use Jira to manage tasks, track progress, and organize our work into sprints. Each sprint contains a set of tickets representing individual tasks or features. As work begins on a ticket it is moved to **In Progress**, and marked **Done** upon completion. This gives us a clear picture of what's been accomplished and what still needs to be done at any point in the project.
 
@@ -113,11 +118,9 @@ workouts/
 
 ---
 
-## Use Case Diagrams
+## Use Case Diagram
 
-*(Use case diagrams to be added)*
-
-Primary actors: **User**
+Primary actor: **User**
 
 Key use cases:
 - Register / Login
@@ -126,7 +129,13 @@ Key use cases:
 - Log a workout session
 - View progress over time
 
+![Use case Diagram](assets/usecase.png)
+
 ---
+
+## Class Diagram
+
+Class diagram shows 
 
 ## Tech Stack
 
