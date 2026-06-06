@@ -21,7 +21,7 @@ myFitness is a fitness tracking application developed for CIS 350 (Introduction 
 - [Class Diagram](#class-diagram)
 - [Sequence Diagram](#sequence-diagram)
 - [Tech Stack](#tech-stack)
-- [UI](#user-interface)
+- [UI](#user-interface-ui)
 - [Setup & Installation](#setup--installation)
 
 ---
