@@ -166,15 +166,15 @@ The sequence diagram illustrates the interaction between the User, Flutter App, 
 ## User Interface (UI)
 ### Login / Register Screen
 This screen shows the login/registration page for the user.  
-![Login/Register](assets/login.png)
+<img src="assets/login.png" width="300"/>
 
 ### Exercise List
 This screen shows the list of exercises user can select. 
-![ExerciseList](assets/exlists.png)
+<img src="assets/exlists.png" width="300"/>
 
 ### Progress View
 This screen shows the progress the user has made over a given period of time. 
-![Progress](assets/progress.png)
+<img src="assets/progress.png" width="300"/>
 
 ---
 
