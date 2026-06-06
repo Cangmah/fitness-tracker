@@ -147,7 +147,7 @@ The class diagram below outlines the core entities of myFitness, their attribute
 
 The sequence diagram illustrates the interaction between the User, Flutter App, Firebase Authentication, and Firestore across all five key use cases. It shows the order of messages exchanged — solid arrows represent requests or actions, while dashed arrows represent responses returned from a service.
 
-![Sequence Diagram](assets/class.png)
+![Sequence Diagram](assets/sequence.png)
 
 ---
 
