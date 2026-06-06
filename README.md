@@ -21,6 +21,7 @@ myFitness is a fitness tracking application developed for CIS 350 (Introduction 
 - [Class Diagram](#class-diagram)
 - [Sequence Diagram](#sequence-diagram)
 - [Tech Stack](#tech-stack)
+- [UI](#user-interface)
 - [Setup & Installation](#setup--installation)
 
 ---
@@ -159,6 +160,21 @@ The sequence diagram illustrates the interaction between the User, Flutter App, 
 | Backend    | Firebase (serverless)   |
 | Database   | Firebase Firestore      |
 | Auth       | Firebase Authentication |
+
+---
+
+## User Interface (UI)
+### Login / Register Screen
+This screen shows the login/registration page for the user.  
+![Login/Register](assets/login.png)
+
+### Exercise List
+This screen shows the list of exercises user can select. 
+![ExerciseList](assets/exlists.png)
+
+### Progress View
+This screen shows the progress the user has made over a given period of time. 
+![Progress](assets/progress.png)
 
 ---
 
