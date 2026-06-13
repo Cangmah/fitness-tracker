@@ -152,6 +152,14 @@ The sequence diagram illustrates the interaction between the User, Flutter App, 
 
 ---
 
+## Communication Diagram 
+
+The communication diagram illustrates how the key objects in myFitness — the User, Flutter App, Firebase Authentication, and Firestore — interact with each other across all five use cases. Unlike the sequence diagram which focuses on the time order, the communication diagram emphasizes the relationships and numbered message flow between objects. Each scenario shows how the Flutter App acts as the central hub, coordinating between the user's actions and the Firebase backend services. 
+
+![Communication Diagram](assets/comdiagram.png)
+
+---
+
 ## Tech Stack
 
 | Layer      | Technology              |
