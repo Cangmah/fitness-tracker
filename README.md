@@ -17,12 +17,12 @@ myFitness is a fitness tracking application developed for CIS 350 (Introduction 
 - [Project Management](#project-management)
 - [Features](#features)
 - [Architectural Design](#architectural-design)
-- [Use Case Diagrams](#use-case-diagrams)
+- [Use Case Diagram](#use-case-diagram)
 - [Class Diagram](#class-diagram)
 - [Sequence Diagram](#sequence-diagram)
 - [Communication Diagram](#communication-diagram)
 - [Tech Stack](#tech-stack)
-- [UI](#user-interface-ui)
+- [User Interface (UI)](#user-interface-ui)
 - [Setup & Installation](#setup--installation)
 
 ---
@@ -50,13 +50,12 @@ We use Jira to manage tasks, track progress, and organize our work into sprints.
 
 ## Features
 
-- **User Authentication** — Secure login and account creation
-- **Exercise Library** — Pre-loaded exercises (squats, dumbbell curls, bench press, etc.)
-- **Custom Exercises** — Users can add their own exercises (e.g., jumping jacks)
-- **Workout Logging** — Log date, sets × reps, and weight per exercise
-- **Progress Tracking** — Visualize progress over a chosen time period
-  - Progressive overload (weight lifted over time)
-  - Volume trends (total sets/reps over time)
+- **User Registration & Login** — Create an account with name, email, and password. Existing users sign in with email and password. Session is managed by Firebase Authentication.
+- **Exercise Library** — Browse a built-in library of exercises organized by muscle group (Legs, Chest, Back, Shoulders, Arms, Core)
+- **Custom Exercises** — Add your own exercises with a name and category during a workout session
+- **Workout Logging** — Start a workout session, select exercises, and log sets, reps, and weight for each
+- **Workout History** — View all previous workout sessions on the home screen, tap to edit or delete any entry
+- **Progress Tracking** — View a per-exercise weight chart over selectable time periods (1 week, 1 month, 3 months, 6 months, 1 year) with a history list below
 
 ---
 
@@ -192,19 +191,30 @@ This screen shows the progress the user has made over a given period of time.
 
 ## Setup & Installation
 
-*(To be completed once tech stack is finalized)*
+### Prerequisites
+- [Flutter SDK](https://docs.flutter.dev/get-started/install) installed
+- [Xcode](https://developer.apple.com/xcode/) (for iOS) or Android Studio (for Android)
+- A Firebase project with Authentication and Firestore enabled
+
+### Steps
 
 ```bash
 # Clone the repository
-git clone <repo-url>
-cd fitness-tracker
+git clone https://github.com/CKThang/fitness-tracker.git
+cd fitness-tracker/myfitness
 
 # Install dependencies
-# TBD
+flutter pub get
 
-# Run the app
-# TBD
+# Run the app on a connected device or simulator
+flutter run
 ```
+
+### Firebase Setup
+1. Create a Firebase project at [console.firebase.google.com](https://console.firebase.google.com)
+2. Enable **Email/Password** under Authentication → Sign-in method
+3. Create a **Firestore** database in test mode
+4. Run `dart pub global run flutterfire_cli:flutterfire configure` to generate `firebase_options.dart`
 
 ---
 

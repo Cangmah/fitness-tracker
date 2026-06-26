@@ -1,3 +1,4 @@
+//home screen - main shell that holds the bottom navigation and three tabs
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -6,6 +7,7 @@ import 'workout_session_screen.dart';
 import 'workout_detail_screen.dart';
 import 'progress_screen.dart';
 
+//manages which tab is currently active and renders the bottom nav bar
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -30,6 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: Text(_titles[_currentIndex]),
         actions: [
+          //only show logout on the home tab
           if (_currentIndex == 0)
             IconButton(
               icon: const Icon(Icons.logout),
@@ -46,6 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       body: _tabs[_currentIndex],
+      //log tab launches workout session as a new screen instead of switching tabs
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: (index) {
@@ -68,6 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
+//home tab - shows a welcome message and the user's previous workout history
 class _HomeTab extends StatelessWidget {
   const _HomeTab();
 
@@ -84,6 +89,7 @@ class _HomeTab extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(height: 16),
+        //fetch the user's name from firestore and show a welcome message
         FutureBuilder<DocumentSnapshot>(
           future: FirebaseFirestore.instance.collection('users').doc(user?.uid).get(),
           builder: (context, snapshot) {
@@ -107,6 +113,7 @@ class _HomeTab extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 8),
+        //stream builder keeps the list updated in real time
         Expanded(
           child: StreamBuilder<QuerySnapshot>(
             stream: FirebaseFirestore.instance
@@ -127,6 +134,7 @@ class _HomeTab extends StatelessWidget {
                 );
               }
 
+              //sort workouts by most recent first on the client side
               final workouts = snapshot.data!.docs
                 ..sort((a, b) {
                   final aDate = (a.data() as Map<String, dynamic>)['date'] as Timestamp;
@@ -167,6 +175,7 @@ class _HomeTab extends StatelessWidget {
   }
 }
 
+//placeholder tab - log button opens workout session as a full screen instead
 class _LogTab extends StatelessWidget {
   const _LogTab();
 
