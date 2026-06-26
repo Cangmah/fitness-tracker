@@ -24,6 +24,7 @@ myFitness is a fitness tracking application developed for CIS 350 (Introduction 
 - [Tech Stack](#tech-stack)
 - [User Interface (UI)](#user-interface-ui)
 - [Setup & Installation](#setup--installation)
+- [Risk Analysis & Retrospective](#risk-analysis--retrospective)
 
 ---
 
@@ -215,6 +216,43 @@ flutter run
 2. Enable **Email/Password** under Authentication → Sign-in method
 3. Create a **Firestore** database in test mode
 4. Run `dart pub global run flutterfire_cli:flutterfire configure` to generate `firebase_options.dart`
+
+---
+
+---
+
+## Risk Analysis & Retrospective
+
+### Risks, Problems, and How We Dealt With Them
+
+**Firebase Configuration**
+One of the earliest challenges was connecting the Flutter app to Firebase. The `flutterfire` CLI was not recognized after installation because it was installed globally via Dart but the system path was not updated. We resolved this by running it with the full command `dart pub global run flutterfire_cli:flutterfire configure` instead. Additionally, the iOS build initially failed because the Firebase packages required a minimum iOS deployment target of 15.0, while the project was set to 13.0. We fixed this by updating the deployment target in the Xcode project configuration file.
+
+**Firestore Permissions**
+After setting up Firestore, workout data was silently failing to save due to restrictive default security rules. The app showed no errors but nothing was being written to the database. We diagnosed this by reading the Flutter debug logs which showed a `permission-denied` error from Firestore. The fix was updating the Firestore security rules to allow authenticated users to read and write their own data.
+
+**iOS Simulator Setup**
+The default simulator target (iOS 26.5) was not installed on the development machine, causing `flutter run` to fail. We resolved this by creating a new simulator using an installed runtime (iOS 26.1) via `xcrun simctl create` and targeting it directly with its device ID.
+
+**Firestore Query Index**
+Querying workouts filtered by `userId` and sorted by `date` required a composite index in Firestore that was not automatically created. This caused the workout history list to silently return no results. We resolved this by removing the server-side `orderBy` and sorting the results on the client side instead, eliminating the index requirement.
+
+**Navigation Stack**
+After a user registered or logged in, the back button was still visible because the previous screens remained in the navigation stack. We fixed this by replacing `Navigator.pushReplacement` with `Navigator.pushAndRemoveUntil` to clear the entire stack on successful authentication.
+
+---
+
+### What Was Done and What Could Have Been Done Better
+
+**What Was Done**
+The core features of myFitness were successfully implemented — user registration and login with Firebase Authentication, a built-in exercise library, custom exercise creation, workout session logging with sets, reps, and weight, workout history with edit and delete, and a progress screen with a line chart filtered by time period. The app follows a clean client-serverless architecture using Flutter and Firebase, with consistent coding conventions and inline comments throughout.
+
+**What Could Have Been Done Better**
+- **Unit and integration testing** — We did not write automated tests for the app. Adding widget tests and integration tests with GitHub Actions CI/CD would have caught bugs earlier and improved reliability.
+- **Data validation** — The app currently accepts 0 or empty values for sets, reps, and weight without warning the user. Adding input validation before saving would improve data quality.
+- **Offline support** — Firebase Firestore supports offline caching, but we did not explicitly configure it. Users on a poor connection may experience delays or failures.
+- **Exercise persistence** — The built-in exercise library is hardcoded in the app rather than stored in Firestore. Moving it to the database would make it easier to expand and allow users to manage their custom exercises across devices.
+- **Progress metrics** — The progress screen currently only charts weight over time. Adding volume (sets × reps) and a personal record indicator would give users more meaningful insight into their progress.
 
 ---
 
